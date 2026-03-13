@@ -10,9 +10,10 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		color: "#fff",
+		fontSize: 18,
 	},
 	button: {
-		fontSize: 20,
+		fontSize: 18,
 		textDecorationLine: "underline",
 		color: "#fff",
 	},
