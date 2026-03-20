@@ -4,6 +4,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 export type Props = {
 	label: string;
 	style?: "secondary" | "primary";
+	onPress?: () => void;
 };
 
 const styles = StyleSheet.create({
@@ -30,12 +31,12 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default function Button(props: Props) {
+export default function Button({ label, style, onPress }: Props) {
 	return (
 		<View
 			style={[
 				styles.buttonContainer,
-				props.style === "primary" && {
+				style === "primary" && {
 					borderWidth: 4,
 					borderColor: "#ffd33d",
 					borderRadius: 18,
@@ -45,22 +46,20 @@ export default function Button(props: Props) {
 			<Pressable
 				style={[
 					styles.button,
-					props.style === "primary" && { backgroundColor: "#fff" },
+					style === "primary" && { backgroundColor: "#fff" },
 				]}
-				onPress={() => {
-					alert("You pressed a button!");
-				}}
+				onPress={onPress}
 			>
 				<FontAwesome name="picture-o" size={18} color="#25292e" />
 				<Text
 					style={[
 						styles.label,
-						props.style === "primary" && {
+						style === "primary" && {
 							color: "#25292e",
 						},
 					]}
 				>
-					{props.label}
+					{label}
 				</Text>
 			</Pressable>
 		</View>
